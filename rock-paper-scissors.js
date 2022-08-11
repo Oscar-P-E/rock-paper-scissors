@@ -1,6 +1,20 @@
-function getComputerChoice() {
-  // randomly return RPS
-  // console.log check output is correct
+const ROCK = "rock",
+  PAPER = "paper",
+  SCISSORS = "scissors";
+
+function computerChoice() {
+  let choice = Math.floor(Math.random() * 3);
+  console.log(choice);
+  switch (choice) {
+    case 0:
+      return ROCK;
+    case 1:
+      return PAPER;
+    case 2:
+      return SCISSORS;
+    default:
+      return "error: something went wrong (you have reached the default case)"
+  }
 }
 
 // function playRound() plays a round of RPS
