@@ -5,6 +5,7 @@ const ROCK = "rock",
 function computerChoice() {
   let choice = Math.floor(Math.random() * 3);
   console.log(choice);
+
   switch (choice) {
     case 0:
       return ROCK;
@@ -17,7 +18,25 @@ function computerChoice() {
   }
 }
 
-// function playRound() plays a round of RPS
+
+function playRound() {
+  let choice = prompt("Enter (R)'rock', (P)'paper', or (S)'scissors'.").toLowerCase();
+  console.log(choice);
+
+  switch (choice) {
+    case "r":
+    case "rock":
+      return ROCK;
+    case "p":
+    case "paper":
+      return PAPER;
+    case "s":
+    case "scissors":
+      return SCISSORS;
+    default:
+      return "error: something went wrong (you have reached the default case)"
+  }
+}
 
 // prompt() user input selection (case INsensitive)
 
