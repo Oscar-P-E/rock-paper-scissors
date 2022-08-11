@@ -19,7 +19,8 @@ function computerChoice() {
 }
 
 
-function playRound() {
+function playerChoice() {
+
   let choice = prompt("Enter (R)'rock', (P)'paper', or (S)'scissors'.").toLowerCase();
   console.log(choice);
 
@@ -37,6 +38,15 @@ function playRound() {
       return "error: something went wrong (you have reached the default case)"
   }
 }
+
+
+  // function playRound() {
+  //   computerChoice()
+
+  //   if () {
+
+  //   }
+  // }
 
 // prompt() user input selection (case INsensitive)
 
