@@ -38,7 +38,7 @@ function playerChoice() {
       return SCISSORS;
 
     default:
-      return console.log("Error: Something went wrong (you have reached the default case)");
+      return alert("Invalid choice. Try again!");
   }
 }
 
@@ -53,44 +53,77 @@ function playRound() {
   switch (playerHand) {
     case ROCK:
       if (computerHand === ROCK) {
-        return alert("DRAW!");
+        return "DRAW!";
       }
       if (computerHand === PAPER) {
-        return alert("YOU LOSE!");
+        return "YOU LOSE!";
       }
       if (computerHand === SCISSORS) {
-        return alert("YOU WIN!");
+        return "YOU WIN!";
       }
 
     case PAPER:
       if (computerHand === PAPER) {
-        return alert("DRAW!");
+        return "DRAW!";
       }
       if (computerHand === SCISSORS) {
-        return alert("YOU LOSE!");
+        return "YOU LOSE!";
       }
       if (computerHand === ROCK) {
-        return alert("YOU WIN!");
+        return "YOU WIN!";
       }
 
     case SCISSORS:
       if (computerHand === SCISSORS) {
-        return alert("DRAW!");
+        return "DRAW!";
       }
       if (computerHand === ROCK) {
-        return alert("YOU LOSE!");
+        return "YOU LOSE!";
       }
       if (computerHand === PAPER) {
-        return alert("YOU WIN!");
+        return "YOU WIN!";
       }
 
     default:
-      return console.log("Error: Something went wrong (you have reached the default case)");
+      return console.log("User entered invalid choice.");
   }
 }
 
-// function game()
-// game() calls playRound() and plays 5 rounds, keeping score, and reports overall winner.
-// use console.log to display winner at end of each round
 
-// feel free to create any additional helper functions if wanted.
+function game() {
+  let p1 = 0,
+    cpu1 = 0;
+
+  for (i = 0; i < 5; ++i) {
+
+    let outcome = playRound();
+    console.log(outcome);
+
+    if (outcome === "YOU WIN!") {
+      ++p1;
+    }
+    if (outcome === "YOU LOSE!") {
+      ++cpu1;
+    }
+
+    console.log("p1 = " + p1 + ", cpu1 = " + cpu1);
+
+    if (p1 >= 3 || cpu1 >= 3) {
+      break;
+    }
+  }
+
+  if (p1 === cpu1) {
+    return "DRAW!";
+  }
+  if (p1 > cpu1) {
+    return "YOU WIN!";
+  }
+  if (p1 < cpu1) {
+    return "YOU LOSE!";
+  }
+
+}
+
+
+alert(game());
