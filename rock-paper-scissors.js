@@ -28,31 +28,66 @@ function playerChoice() {
     case "r":
     case "rock":
       return ROCK;
+
     case "p":
     case "paper":
       return PAPER;
+
     case "s":
     case "scissors":
       return SCISSORS;
+
     default:
-      return "error: something went wrong (you have reached the default case)"
+      return console.log("Error: Something went wrong (you have reached the default case)");
   }
 }
 
 
-  // function playRound() {
-  //   computerChoice()
+function playRound() {
 
-  //   if () {
+  let playerHand = playerChoice()
+  let computerHand = computerChoice()
+  console.log(playerHand)
+  console.log(computerHand)
 
-  //   }
-  // }
+  switch (playerHand) {
+    case ROCK:
+      if (computerHand === ROCK) {
+        return alert("DRAW!");
+      }
+      if (computerHand === PAPER) {
+        return alert("YOU LOSE!");
+      }
+      if (computerHand === SCISSORS) {
+        return alert("YOU WIN!");
+      }
 
-// prompt() user input selection (case INsensitive)
+    case PAPER:
+      if (computerHand === PAPER) {
+        return alert("DRAW!");
+      }
+      if (computerHand === SCISSORS) {
+        return alert("YOU LOSE!");
+      }
+      if (computerHand === ROCK) {
+        return alert("YOU WIN!");
+      }
 
-// takes computer (random) selection
+    case SCISSORS:
+      if (computerHand === SCISSORS) {
+        return alert("DRAW!");
+      }
+      if (computerHand === ROCK) {
+        return alert("YOU LOSE!");
+      }
+      if (computerHand === PAPER) {
+        return alert("YOU WIN!");
+      }
 
-// return string that says you win/lose/draw
+    default:
+      return console.log("Error: Something went wrong (you have reached the default case)");
+  }
+}
 
 // function game()
 // game() calls playRound() and plays 5 rounds, keeping score, and reports overall winner.
