@@ -6,6 +6,19 @@ const WIN = "YOU WIN!",
   LOSE = "YOU LOSE!",
   DRAW = "DRAW!";
 
+// Create three buttons, one for each selection.
+// Add an event listener to the buttons that call your playRound function with
+// the correct playerSelection every time a button is clicked.
+const rockBtn = document.querySelector("#rock-btn");
+const paperBtn = document.querySelector("#paper-btn");
+const scissorsBtn = document.querySelector("#scissors-btn");
+
+// Add a div for displaying results and change all of your console.logs into DOM methods.
+
+// Display the running score.
+
+// Announce a winner of the game once a player reaches 5 points.
+
 function computerChoice() {
   let choice = Math.floor(Math.random() * 3);
   // console.log(choice);
