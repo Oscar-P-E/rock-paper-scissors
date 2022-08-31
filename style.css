@@ -5,3 +5,38 @@ TODO:
 - Add a background image to the page
 - Make the buttons look better
 */
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* 10pt (for easy rem sizing) */
+}
+
+button {
+  font-size: 3rem;
+}
+.buttons {
+  display: flex;
+  /* justify-content: center; */
+  gap: 16px;
+}
+
+.button {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.center-button {
+  flex: 0;
+}
+
+#rock-btn {
+  margin-left: auto;
+}
+
+#scissors-btn {
+  margin-right: auto;
+}
+
+#paper-btn {
+}
