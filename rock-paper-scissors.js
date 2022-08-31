@@ -2,9 +2,13 @@ const ROCK = "rock",
   PAPER = "paper",
   SCISSORS = "scissors";
 
+const WIN = "YOU WIN!",
+  LOSE = "YOU LOSE!",
+  DRAW = "DRAW!";
+
 function computerChoice() {
   let choice = Math.floor(Math.random() * 3);
-  console.log(choice);
+  // console.log(choice);
 
   switch (choice) {
     case 0:
@@ -14,15 +18,15 @@ function computerChoice() {
     case 2:
       return SCISSORS;
     default:
-      return "error: something went wrong (you have reached the default case)"
+      return "ERROR";
   }
 }
 
-
 function playerChoice() {
-
-  let choice = prompt("Enter (R)'rock', (P)'paper', or (S)'scissors'.").toLowerCase();
-  console.log(choice);
+  let choice = prompt(
+    "Enter (R)'rock', (P)'paper', or (S)'scissors'."
+  ).toLowerCase();
+  // console.log(choice);
 
   switch (choice) {
     case "r":
@@ -42,71 +46,67 @@ function playerChoice() {
   }
 }
 
-
 function playRound() {
-
-  let playerHand = playerChoice()
-  let computerHand = computerChoice()
-  console.log(playerHand)
-  console.log(computerHand)
+  let playerHand = playerChoice();
+  let computerHand = computerChoice();
+  // console.log(playerHand)
+  // console.log(computerHand)
 
   switch (playerHand) {
     case ROCK:
       if (computerHand === ROCK) {
-        return "DRAW!";
+        return DRAW;
       }
       if (computerHand === PAPER) {
-        return "YOU LOSE!";
+        return LOSE;
       }
       if (computerHand === SCISSORS) {
-        return "YOU WIN!";
+        return WIN;
       }
 
     case PAPER:
       if (computerHand === PAPER) {
-        return "DRAW!";
+        return DRAW;
       }
       if (computerHand === SCISSORS) {
-        return "YOU LOSE!";
+        return LOSE;
       }
       if (computerHand === ROCK) {
-        return "YOU WIN!";
+        return WIN;
       }
 
     case SCISSORS:
       if (computerHand === SCISSORS) {
-        return "DRAW!";
+        return DRAW;
       }
       if (computerHand === ROCK) {
-        return "YOU LOSE!";
+        return LOSE;
       }
       if (computerHand === PAPER) {
-        return "YOU WIN!";
+        return WIN;
       }
 
     default:
-      return console.log("User entered invalid choice.");
+      return console.log("ERROR: User entered invalid choice");
   }
 }
-
 
 function game() {
   let p1 = 0,
     cpu1 = 0;
 
   for (i = 0; i < 5; ++i) {
-
     let outcome = playRound();
-    console.log(outcome);
+    // console.log(outcome);
 
-    if (outcome === "YOU WIN!") {
+    if (outcome === WIN) {
       ++p1;
     }
-    if (outcome === "YOU LOSE!") {
+    if (outcome === LOSE) {
       ++cpu1;
     }
 
-    console.log("p1 = " + p1 + ", cpu1 = " + cpu1);
+    // console.log("p1 = " + p1 + ", cpu1 = " + cpu1);
 
     if (p1 >= 3 || cpu1 >= 3) {
       break;
@@ -114,16 +114,14 @@ function game() {
   }
 
   if (p1 === cpu1) {
-    return "DRAW!";
+    return DRAW;
   }
   if (p1 > cpu1) {
-    return "YOU WIN!";
+    return WIN;
   }
   if (p1 < cpu1) {
-    return "YOU LOSE!";
+    return LOSE;
   }
-
 }
-
 
 alert(game());
