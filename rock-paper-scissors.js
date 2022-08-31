@@ -95,23 +95,23 @@ function game() {
   let p1 = 0,
     cpu1 = 0;
 
-  for (i = 0; i < 5; ++i) {
-    let outcome = playRound();
-    // console.log(outcome);
+  // for (i = 0; i < 5; ++i) {
+  let outcome = playRound();
+  // console.log(outcome);
 
-    if (outcome === WIN) {
-      ++p1;
-    }
-    if (outcome === LOSE) {
-      ++cpu1;
-    }
-
-    // console.log("p1 = " + p1 + ", cpu1 = " + cpu1);
-
-    if (p1 >= 3 || cpu1 >= 3) {
-      break;
-    }
+  if (outcome === WIN) {
+    ++p1;
   }
+  if (outcome === LOSE) {
+    ++cpu1;
+  }
+
+  // console.log("p1 = " + p1 + ", cpu1 = " + cpu1);
+
+  // if (p1 >= 3 || cpu1 >= 3) {
+  // break;
+  // } // if p1 or cpu1 >= 3
+  // } // for i < 5
 
   if (p1 === cpu1) {
     return DRAW;
