@@ -1,19 +1,18 @@
-/*
-TODO:
-- Add a background image to the page
-- Make the buttons look better
-*/
-
 html {
   box-sizing: border-box;
   font-size: 62.5%; /* 10pt (for easy rem sizing) */
+  background: url("./images/funny-half-cat-photoshop-battle-12-57357f7356826__700.jpg");
+  background-size: cover;
 }
 
 .container {
   height: 66vh;
+  max-width: 650px;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 button {
@@ -49,9 +48,12 @@ button {
 /* } */
 
 .scoreboard {
+  background-color: hsla(180, 0%, 100%, 66%);
   margin-top: 30px;
+  height: 42px;
   display: flex;
   justify-content: center;
   font-size: 3rem;
   gap: 100px;
+  align-items: center;
 }
