@@ -1,7 +1,6 @@
 // TODO:
 // Add a div for displaying results and change all of your console.logs into DOM methods.
-
-// Display the running score.
+// ??????
 
 // Announce a winner of the game once a player reaches 5 points.
 
@@ -17,7 +16,7 @@ const WIN = "YOU WIN!",
 // Create three buttons, one for each selection.
 // Add an event listener to the buttons that call your playRound function with
 // the correct playerSelection every time a button is clicked.
-// const scoreboard = document.querySelector(".scoreboard");
+const scoreboard = document.querySelector(".scoreboard");
 const playerScoreboard = document.querySelector(".player-score");
 const computerScoreboard = document.querySelector(".computer-score");
 
@@ -120,6 +119,26 @@ function playRound(e) {
 
   playerScoreboard.textContent = playerScore;
   computerScoreboard.textContent = computerScore;
+
+  if (playerScore >= 5) {
+    scoreboard.setAttribute("style", "color: green");
+    alert(WIN);
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreboard.textContent = playerScore;
+    computerScoreboard.textContent = computerScore;
+    scoreboard.setAttribute("style", "color: black");
+  }
+
+  if (computerScore >= 5) {
+    scoreboard.setAttribute("style", "color: red");
+    alert(LOSE);
+    playerScore = 0;
+    computerScore = 0;
+    scoreboard.textContent = playerScore;
+    computerScoreboard.textContent = computerScore;
+    scoreboard.setAttribute("style", "color: black");
+  }
 }
 
 // // function game() {
