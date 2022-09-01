@@ -1,3 +1,4 @@
+// function playRPS() {
 const ROCK = "rock",
   PAPER = "paper",
   SCISSORS = "scissors";
@@ -6,12 +7,19 @@ const WIN = "YOU WIN!",
   LOSE = "YOU LOSE!",
   DRAW = "DRAW!";
 
+let playerScore = 0,
+  computerScore = 0;
+
 // Create three buttons, one for each selection.
 // Add an event listener to the buttons that call your playRound function with
 // the correct playerSelection every time a button is clicked.
-const rockBtn = document.querySelector("#rock-btn");
-const paperBtn = document.querySelector("#paper-btn");
-const scissorsBtn = document.querySelector("#scissors-btn");
+const buttons = document.querySelectorAll(".btn");
+// let playerHand;
+
+buttons.forEach((btn) => {
+  // btn.addEventListener("click", playerChoice);
+  btn.addEventListener("click", playRound);
+});
 
 // Add a div for displaying results and change all of your console.logs into DOM methods.
 
@@ -21,7 +29,6 @@ const scissorsBtn = document.querySelector("#scissors-btn");
 
 function computerChoice() {
   let choice = Math.floor(Math.random() * 3);
-  // console.log(choice);
 
   switch (choice) {
     case 0:
@@ -35,35 +42,29 @@ function computerChoice() {
   }
 }
 
-function playerChoice() {
-  let choice = prompt(
-    "Enter (R)'rock', (P)'paper', or (S)'scissors'."
-  ).toLowerCase();
-  // console.log(choice);
+function playerChoice(e) {
+  let choice = e.target.id;
 
   switch (choice) {
-    case "r":
-    case "rock":
+    case "rock-btn":
       return ROCK;
 
-    case "p":
-    case "paper":
+    case "paper-btn":
       return PAPER;
 
-    case "s":
-    case "scissors":
+    case "scissors-btn":
       return SCISSORS;
 
     default:
-      return alert("Invalid choice. Try again!");
+      return alert("ERROR");
   }
 }
 
-function playRound() {
-  let playerHand = playerChoice();
+function playRound(e) {
+  let playerHand = playerChoice(e);
   let computerHand = computerChoice();
-  // console.log(playerHand)
-  // console.log(computerHand)
+  console.log(`Player hand is ${playerHand}`);
+  console.log(`Computer hand is ${computerHand}`);
 
   switch (playerHand) {
     case ROCK:
@@ -71,9 +72,11 @@ function playRound() {
         return DRAW;
       }
       if (computerHand === PAPER) {
+        ++computerScore;
         return LOSE;
       }
       if (computerHand === SCISSORS) {
+        ++playerScore;
         return WIN;
       }
 
@@ -82,9 +85,11 @@ function playRound() {
         return DRAW;
       }
       if (computerHand === SCISSORS) {
+        ++computerScore;
         return LOSE;
       }
       if (computerHand === ROCK) {
+        ++playerScore;
         return WIN;
       }
 
@@ -93,48 +98,51 @@ function playRound() {
         return DRAW;
       }
       if (computerHand === ROCK) {
+        ++computerScore;
         return LOSE;
       }
       if (computerHand === PAPER) {
+        ++playerScore;
         return WIN;
       }
 
     default:
-      return console.log("ERROR: User entered invalid choice");
+      return console.log("ERROR");
   }
 }
 
-function game() {
-  let p1 = 0,
-    cpu1 = 0;
+// // function game() {
 
-  // for (i = 0; i < 5; ++i) {
-  let outcome = playRound();
-  // console.log(outcome);
+// for (i = 0; i < 5; ++i) {
+// //   let outcome = playRound();
+// //   // console.log(outcome);
 
-  if (outcome === WIN) {
-    ++p1;
-  }
-  if (outcome === LOSE) {
-    ++cpu1;
-  }
+// //   if (outcome === WIN) {
+// //     ++playerScore;
+// //   }
+// //   if (outcome === LOSE) {
+// //     ++computerScore;
+// //   }
 
-  // console.log("p1 = " + p1 + ", cpu1 = " + cpu1);
+// //   // console.log("playerScore = " + playerScore + ", computerScore = " + computerScore);
 
-  // if (p1 >= 3 || cpu1 >= 3) {
-  // break;
-  // } // if p1 or cpu1 >= 3
-  // } // for i < 5
+// //   // if (playerScore >= 3 || computerScore >= 3) {
+// //   // break;
+// //   // } // if playerScore or computerScore >= 3
+// //   // } // for i < 5
 
-  if (p1 === cpu1) {
-    return DRAW;
-  }
-  if (p1 > cpu1) {
-    return WIN;
-  }
-  if (p1 < cpu1) {
-    return LOSE;
-  }
-}
+// //   if (playerScore === computerScore) {
+// //     return DRAW;
+// //   }
+// //   if (playerScore > computerScore) {
+// //     return WIN;
+// //   }
+// //   if (playerScore < computerScore) {
+// //     return LOSE;
+// //   }
+// // }
 
-alert(game());
+// // alert(game());
+// }
+
+// playRPS();
