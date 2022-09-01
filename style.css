@@ -48,7 +48,7 @@ button {
 /* } */
 
 .scoreboard {
-  background-color: hsla(180, 0%, 100%, 66%);
+  background-color: hsla(0, 0%, 100%, 66%);
   margin-top: 30px;
   height: 42px;
   display: flex;
