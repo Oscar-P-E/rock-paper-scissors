@@ -1,3 +1,10 @@
+// TODO:
+// Add a div for displaying results and change all of your console.logs into DOM methods.
+
+// Display the running score.
+
+// Announce a winner of the game once a player reaches 5 points.
+
 // function playRPS() {
 const ROCK = "rock",
   PAPER = "paper",
@@ -7,25 +14,25 @@ const WIN = "YOU WIN!",
   LOSE = "YOU LOSE!",
   DRAW = "DRAW!";
 
-let playerScore = 0,
-  computerScore = 0;
-
 // Create three buttons, one for each selection.
 // Add an event listener to the buttons that call your playRound function with
 // the correct playerSelection every time a button is clicked.
+// const scoreboard = document.querySelector(".scoreboard");
+const playerScoreboard = document.querySelector(".player-score");
+const computerScoreboard = document.querySelector(".computer-score");
+
+let playerScore = 0,
+  computerScore = 0;
+
+playerScoreboard.textContent = playerScore;
+computerScoreboard.textContent = computerScore;
+
 const buttons = document.querySelectorAll(".btn");
-// let playerHand;
 
 buttons.forEach((btn) => {
   // btn.addEventListener("click", playerChoice);
   btn.addEventListener("click", playRound);
 });
-
-// Add a div for displaying results and change all of your console.logs into DOM methods.
-
-// Display the running score.
-
-// Announce a winner of the game once a player reaches 5 points.
 
 function computerChoice() {
   let choice = Math.floor(Math.random() * 3);
@@ -66,49 +73,53 @@ function playRound(e) {
   console.log(`Player hand is ${playerHand}`);
   console.log(`Computer hand is ${computerHand}`);
 
-  switch (playerHand) {
-    case ROCK:
-      if (computerHand === ROCK) {
-        return DRAW;
-      }
-      if (computerHand === PAPER) {
-        ++computerScore;
-        return LOSE;
-      }
-      if (computerHand === SCISSORS) {
-        ++playerScore;
-        return WIN;
-      }
-
-    case PAPER:
-      if (computerHand === PAPER) {
-        return DRAW;
-      }
-      if (computerHand === SCISSORS) {
-        ++computerScore;
-        return LOSE;
-      }
-      if (computerHand === ROCK) {
-        ++playerScore;
-        return WIN;
-      }
-
-    case SCISSORS:
-      if (computerHand === SCISSORS) {
-        return DRAW;
-      }
-      if (computerHand === ROCK) {
-        ++computerScore;
-        return LOSE;
-      }
-      if (computerHand === PAPER) {
-        ++playerScore;
-        return WIN;
-      }
-
-    default:
-      return console.log("ERROR");
+  // switch (playerHand) {
+  if (playerHand === ROCK) {
+    // if (computerHand === ROCK) {
+    // return DRAW;
+    // }
+    if (computerHand === PAPER) {
+      ++computerScore;
+      // return LOSE;
+    }
+    if (computerHand === SCISSORS) {
+      ++playerScore;
+      // return WIN;
+    }
   }
+
+  if (playerHand === PAPER) {
+    // if (computerHand === PAPER) {
+    // return DRAW;
+    // }
+    if (computerHand === SCISSORS) {
+      ++computerScore;
+      // return LOSE;
+    }
+    if (computerHand === ROCK) {
+      ++playerScore;
+      // return WIN;
+    }
+  }
+
+  if (playerHand === SCISSORS) {
+    // if (computerHand === SCISSORS) {
+    // return DRAW;
+    // }
+    if (computerHand === ROCK) {
+      ++computerScore;
+      // return LOSE;
+    }
+    if (computerHand === PAPER) {
+      ++playerScore;
+      // return WIN;
+    }
+  }
+  // default:
+  // return console.log("ERROR");
+
+  playerScoreboard.textContent = playerScore;
+  computerScoreboard.textContent = computerScore;
 }
 
 // // function game() {
