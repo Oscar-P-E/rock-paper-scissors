@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  font-size: 62.5%; /* 10pt (for easy rem sizing) */
+  font-size: 62.5%; /* 10pt, for easy rem sizing */
   background: url("./images/funny-half-cat-photoshop-battle-12-57357f7356826__700.jpg");
   background-size: cover;
 }
@@ -25,27 +25,6 @@ button {
   gap: 25px;
   justify-content: center;
 }
-
-/* .button { */
-/* display: flex; */
-/* flex: 1; */
-/* justify-content: center; */
-/* } */
-
-/* .center-button { */
-/* flex: 0; */
-/* } */
-
-/* #rock-btn { */
-/* margin-left: auto; */
-/* } */
-
-/* #scissors-btn { */
-/* margin-right: auto; */
-/* } */
-
-/* #paper-btn { */
-/* } */
 
 .scoreboard {
   background-color: hsla(0, 0%, 100%, 66%);
